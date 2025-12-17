@@ -40,6 +40,36 @@ http://localhost:3000/api-docs
 - Não é permitido registrar filmes assistidos duplicados para o mesmo usuário.
 - Apenas usuários autenticados podem registrar e consultar filmes assistidos.
 
+## Aplicação de Conceitos no Código
+
+### Autenticação via JWT
+A autenticação é realizada utilizando a biblioteca `jsonwebtoken`. No arquivo `authMiddleware.js`, o token JWT é verificado para autenticar as requisições:
+```javascript
+const jwt = require('jsonwebtoken');
+const decoded = jwt.verify(token, SECRET);
+```
+No arquivo `userController.js`, o token é gerado durante o login:
+```javascript
+const token = jwt.sign({ login: user.login }, SECRET, { expiresIn: '1h' });
+```
+
+### Documentação Swagger
+A documentação interativa da API é configurada no arquivo `app.js` utilizando `swagger-ui-express`:
+```javascript
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+```
+Acesse a documentação em `http://localhost:3000/api-docs`.
+
+### Registro de Filmes Assistidos
+As rotas para registrar e consultar filmes assistidos estão definidas no arquivo `app.js`:
+```javascript
+app.post('/filmes-assistidos', authMiddleware, movieController.addWatchedMovie);
+app.get('/filmes-assistidos', authMiddleware, movieController.getWatchedMovies);
+```
+Essas rotas utilizam o middleware de autenticação e são implementadas no `movieController`.
+
 ## Testes
 
 Para testar a API, recomenda-se o uso do Supertest e Jest. O arquivo `app.js` pode ser importado diretamente nos testes sem iniciar o servidor.

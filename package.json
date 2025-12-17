@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha \"test/**/*.test.js\" --timeout 10000" 
+    "test": "mocha \"test/**/*.test.js\" --timeout 10000",
+    "k6-test": "set \"K6_WEB_DASHBOARD=true\" && set \"K6_WEB_DASHBOARD_EXPORT=html-report.html\" && set \"K6_WEB_DASHBOARD_PERIOD=10s\" && k6 run test/k6/capture.test.js"
   },
   "keywords": [
     "api",
@@ -27,6 +28,7 @@
     "swagger-ui-express": "^4.6.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "k6": "^0.46.0"
   }
 }
