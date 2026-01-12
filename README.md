@@ -1,4 +1,4 @@
-# Este repositório contém explicações sobre conceitos aplicados na API, incluindo Métricas Personalizadas, Helpers, Autenticação com Token JWT, Testes de Performance e Documentação Swagger.
+# Este repositório contém explicações sobre conceitos aplicados na API, incluindo Métricas Personalizadas, Helpers, Autenticação com Token JWT, Documentação Swagger, Testes de Performance(Explicando onde no código cada um dos conceitos foram aplicados para o arquivo `test/k6/capture.test.js`).
 
 Esta API permite o registro e consulta de usuários e filmes assistidos, com autenticação via JWT e documentação Swagger.
 
@@ -72,7 +72,7 @@ Essas rotas utilizam o middleware de autenticação e são implementadas no `mov
 
 ## Aplicação de Conceitos no Arquivo `capture.test.js`
 
-O arquivo `test/k6/capture.test.js` demonstra o uso de vários conceitos importantes para testes de carga e desempenho utilizando o K6. Abaixo estão os conceitos aplicados e onde eles aparecem no código:
+O arquivo `test/k6/capture.test.js` demonstra o uso de vários conceitos importantes para testes de carga e desempenho utilizando o K6, incluindo a reutilização de um helper importado de outro script JavaScript. Abaixo estão os conceitos aplicados e onde eles aparecem no código:
 
 ### Métricas Personalizadas
 No início do arquivo, são criadas métricas personalizadas para medir a duração das requisições de login e registro de filmes assistidos:
