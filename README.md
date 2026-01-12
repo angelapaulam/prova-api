@@ -1,4 +1,4 @@
-# API de Catálogo de Filmes Assistidos
+# Este repositório contém explicações sobre conceitos aplicados na API, incluindo Métricas Personalizadas, Helpers, Autenticação com Token JWT, Testes de Performance e Documentação Swagger.
 
 Esta API permite o registro e consulta de usuários e filmes assistidos, com autenticação via JWT e documentação Swagger.
 
@@ -163,4 +163,4 @@ Para testar a API, recomenda-se o uso do Supertest e Jest. O arquivo `app.js` po
 
 ---
 
-Desenvolvido para fins de aprendizado de Automação de Testes de Performance em uma API.
+Desenvolvido para fins de aprendizado e trabalho final de Automação de Testes de Performance em uma API.
